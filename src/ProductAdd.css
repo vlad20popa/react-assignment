@@ -1,0 +1,27 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 400px;
+    max-width: 350px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.button{
+    min-height: 56px;
+    min-width: 80px;
+}
+
+.counter-container{
+    padding-bottom: 20px;
+    height: 33%;
+}
+
+.amount-text{
+    max-width: 30%;
+}
+
+.product-text{
+    padding-bottom: 20px;
+}
