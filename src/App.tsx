@@ -10,21 +10,22 @@ function App() {
 
     useEffect(() => {
         console.log(productList);
-    });
+    }, [productList]);
 
     const addToList = (product: Product) => {
         setProductList(productList => [...productList, product]);
     }
 
-    const removeProduct = (product: Product) => {
-        let removeIndex: number = productList.map(product => {return product.name;}).indexOf(product.name)
-        setProductList(productList => productList.splice(removeIndex, 1))
+    const removeProduct = (productIndex: number) => {
+        console.log(productIndex);
+        const updatedProducts = productList.filter((product, index) => index !== productIndex);
+        setProductList(updatedProducts);
     }
 
     return (
         <div className="App">
             <ProductAdd addItem={addToList}/>
-            <ProductList />
+            <ProductList items={productList} removeItem={removeProduct}/>
         </div>
     );
 }
