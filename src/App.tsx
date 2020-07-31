@@ -1,16 +1,12 @@
-import React, {useEffect} from 'react';
-import ProductAdd from "./ProductAdd";
+import React from 'react';
+import ProductAdd from "./ProductComponents/ProductAdd";
 import './App.css';
-import {ProductList} from "./ProductsList";
-import Product from './Product';
+import {ProductList} from "./ProductComponents/ProductsList";
+import Product from './ProductComponents/Product';
 
 function App() {
     const initialProductList: Array<Product> = [];
     const [productList, setProductList] = React.useState(initialProductList);
-
-    useEffect(() => {
-        console.log(productList);
-    }, [productList]);
 
     const addToList = (product: Product) => {
         setProductList(productList => [...productList, product]);

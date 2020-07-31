@@ -9,10 +9,10 @@ export interface ProductAddInterface {
     addItem: (adItem: Product) => void;
 }
 
-export const ProductAdd: FC<ProductAddInterface> = props => {
+export const ProductAdd: FC<ProductAddInterface> = React.memo(props => {
 
     const [amount, setAmount] = useState(0);
-    const[productName, setProductName] = useState("");
+    const [productName, setProductName] = useState("");
 
     const incrementAmount = () => {
         setAmount(amount + 1);
@@ -48,13 +48,14 @@ export const ProductAdd: FC<ProductAddInterface> = props => {
             <div className="counter-container">
                 <Button onClick={decrementAmount} className="button" variant="outlined" color="secondary">-</Button>
                 <TextField className="amount-text" id="outlined-basic" label="Amount" value={amount}
-                           inputProps={{min: 0, style: { textAlign: 'center' }}}
+                           inputProps={{min: 0, style: {textAlign: 'center'}}}
                            onChange={handleAmountChange} variant="outlined"/>
                 <Button onClick={incrementAmount} className="button" variant="outlined" color="primary">+</Button>
 
             </div>
             <div className="product-text">
-                <TextField className="product-text" id="outlined-basic" label="Product name" value={productName} variant="outlined" onChange={handleNameChange}/>
+                <TextField className="product-text" id="outlined-basic" label="Product name" value={productName}
+                           variant="outlined" onChange={handleNameChange}/>
             </div>
 
             <Button onClick={() => {
@@ -63,6 +64,6 @@ export const ProductAdd: FC<ProductAddInterface> = props => {
         </div>
     );
 
-}
+});
 
 export default ProductAdd;

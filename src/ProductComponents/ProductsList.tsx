@@ -33,17 +33,15 @@ export const ProductList: FC<ProductListInterface> = (props) => {
     }
 
     return (
-        <div className="list-container">
-            <Grid item xs={12} md={6}>
-                <Typography variant="h6">
-                    Product list
-                </Typography>
-                <div>
-                    <List dense={false}>
-                        {generateItems()}
-                    </List>
-                </div>
-            </Grid>
-        </div>
+        <Grid container={true} alignItems="center" spacing={0} direction="column" justify="center">
+            <Typography variant="h6">
+                Product list
+            </Typography>
+            <div>
+                <List dense={false}>
+                    {props.items.length > 0 ? generateItems() : <h4>No items to display</h4>}
+                </List>
+            </div>
+        </Grid>
     );
 }
