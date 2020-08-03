@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react";
+import React, {FC, useState, memo} from "react";
 import Button from "@material-ui/core/Button";
 import "./ProductAdd.css";
 import TextField from '@material-ui/core/TextField';
@@ -9,7 +9,7 @@ export interface ProductAddInterface {
     addItem: (adItem: Product) => void;
 }
 
-export const ProductAdd: FC<ProductAddInterface> = React.memo(props => {
+export const ProductAdd: FC<ProductAddInterface> = memo(props => {
 
     const [amount, setAmount] = useState(0);
     const [productName, setProductName] = useState("");
@@ -32,9 +32,7 @@ export const ProductAdd: FC<ProductAddInterface> = React.memo(props => {
     }
 
     const handleNameChange = (e: any) => {
-        if (e.target && e.target.value) {
-            setProductName(e.target.value);
-        }
+        setProductName(e.target.value);
     }
 
     const handleProductAdd = (product: Product) => {
